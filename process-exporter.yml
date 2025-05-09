@@ -1,5 +1,5 @@
 process_names:
-  - name: "ollama"
+  - name: "{{.Comm}}"
     cmdline:
       - '.+ollama.+'
 

@@ -16,6 +16,7 @@ services:
       - "9090:9090"
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
+    restart: unless-stopped
 
   grafana:
     image: grafana/grafana:latest
@@ -26,11 +27,13 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
+    restart: unless-stopped
 
   node_exporter:
     image: prom/node-exporter:latest
     ports:
       - "9100:9100"
+    restart: unless-stopped
 
   process_exporter:
     image: ncabatoff/process-exporter:latest
@@ -42,16 +45,21 @@ services:
     ports:
       - "9256:9256"
     privileged: true
+    restart: unless-stopped
 
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
     ports:
       - "8080:8080"
     volumes:
-       - /:/rootfs:ro
-       - /var/run:/var/run:ro
-       - /sys:/sys:ro
-       - /var/lib/docker/:/var/lib/docker:ro
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    devices:
+      - /dev/kmsg
+    privileged: true
     restart: unless-stopped
 
 volumes:
