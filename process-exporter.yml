@@ -1,12 +1,13 @@
 process_names:
-  - name: "ollama"
+  - name: "{{.Comm}}"
     cmdline:
-      - "ollama"
+      - '.+ollama.+'
 
-  - name: "open-webui"
+  - name: "{{.Comm}}"
     cmdline:
-      - "open-webui"
+      - '.+open-webui.+'
 
-  - name: "docker"
+  - name: "{{.Comm}}"
     cmdline:
-      - "dockerd"
+      - '.+docker.+'
+      - 'dockerd.+'
