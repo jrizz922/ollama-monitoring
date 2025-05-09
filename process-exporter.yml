@@ -1,8 +1,7 @@
 process_names:
-  # Specific pattern for Ollama with correct path
   - name: "ollama"
     cmdline:
-      - '.*/local/bin/ollama.*'
+      - '.*/usr/local/bin/ollama.*'
       - '.*ollama.*'
 
   # Docker processes
