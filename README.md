@@ -1,24 +1,26 @@
-#README
+# Ollama Monitoring Setup
 
 Run `docker-compose up -d`
 
-	3.	Open:
-	•	Prometheus: http://localhost:9090
-	•	Grafana: http://localhost:3000
-	•	Login: admin / admin
-	•	Add Prometheus as a data source: http://prometheus:9090
-	•	Import dashboards or build your own.
-🧩 How to Use This
-	1.	Open Grafana at http://localhost:3000
+Open:
+
+* Prometheus: <http://localhost:9090>
+* Grafana: <http://localhost:3000>
+* Login: admin / admin
+* Add Prometheus as a data source: ≤<http://prometheus:9090>>
+* Import dashboards or build your own.
+    🧩 How to Use This
+  1. Open Grafana at <http://localhost:3000>
 (login: admin / admin if you haven’t changed it)
-	2.	Go to:
-	•	☰ → Dashboards → Import
-	3.	Paste the JSON below into the Import via panel JSON field.
+  2. Go to:
+  • ☰ → Dashboards → Import
+  3. Paste the JSON below into the Import via panel JSON field.
 
 ⸻
 
 📊 Ollama + WebUI Monitoring Dashboard JSON
-```
+
+```json
 {
   "id": null,
   "title": "Ollama & OpenWebUI Process Monitoring",
@@ -103,9 +105,15 @@ Run `docker-compose up -d`
 }
 ```
 
-✅ Features
-	•	Real-time CPU and RAM usage per process
-	•	Split view for ollama and openwebui
-	•	Works with the process_exporter config I gave earlier
+## Features
 
-	
+* Real-time CPU and RAM usage per process
+* Split view for ollama and openwebui
+* Works with the process_exporter config I gave earlier
+
+## To Run
+
+```bash
+chmod +x start.sh stop.sh
+./start.sh
+```
