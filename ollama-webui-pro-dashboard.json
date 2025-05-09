@@ -44,7 +44,7 @@
       "title": "CPU Usage - OpenWebUI Container",
       "targets": [
         {
-          "expr": "rate(container_cpu_usage_seconds_total{container_name=~\".*open-webui.*\"}[1m])",
+          "expr": "rate(container_cpu_usage_seconds_total{name=~\".*open.*webui.*\"|name=~\".*openwebui.*\"|container_name=~\".*open.*webui.*\"|container_name=~\".*openwebui.*\"}[1m])",
           "legendFormat": "OpenWebUI CPU",
           "interval": ""
         }
@@ -62,7 +62,7 @@
       "title": "Memory Usage - OpenWebUI Container",
       "targets": [
         {
-          "expr": "container_memory_usage_bytes{container_name=~\".*open-webui.*\"}",
+          "expr": "container_memory_usage_bytes{name=~\".*open.*webui.*\"|name=~\".*openwebui.*\"|container_name=~\".*open.*webui.*\"|container_name=~\".*openwebui.*\"}",
           "legendFormat": "OpenWebUI RAM",
           "interval": ""
         }
@@ -80,8 +80,8 @@
       "title": "CPU Usage - All Containers",
       "targets": [
         {
-          "expr": "rate(container_cpu_usage_seconds_total{container_name!=\"\",container_name!=\"POD\"}[1m])",
-          "legendFormat": "{{container_name}} CPU",
+          "expr": "rate(container_cpu_usage_seconds_total{name!=\"\",name!=\"POD\"}[1m])",
+          "legendFormat": "{{name}} CPU",
           "interval": ""
         }
       ],
@@ -98,8 +98,8 @@
       "title": "Memory Usage - All Containers",
       "targets": [
         {
-          "expr": "container_memory_usage_bytes{container_name!=\"\",container_name!=\"POD\"}",
-          "legendFormat": "{{container_name}} RAM",
+          "expr": "container_memory_usage_bytes{name!=\"\",name!=\"POD\"}",
+          "legendFormat": "{{name}} RAM",
           "interval": ""
         }
       ],
@@ -116,13 +116,13 @@
       "title": "Network I/O - All Containers",
       "targets": [
         {
-          "expr": "rate(container_network_receive_bytes_total{container_name!=\"\",container_name!=\"POD\"}[1m])",
-          "legendFormat": "{{container_name}} - Receive",
+          "expr": "rate(container_network_receive_bytes_total{name!=\"\",name!=\"POD\"}[1m])",
+          "legendFormat": "{{name}} - Receive",
           "interval": ""
         },
         {
-          "expr": "rate(container_network_transmit_bytes_total{container_name!=\"\",container_name!=\"POD\"}[1m])",
-          "legendFormat": "{{container_name}} - Transmit",
+          "expr": "rate(container_network_transmit_bytes_total{name!=\"\",name!=\"POD\"}[1m])",
+          "legendFormat": "{{name}} - Transmit",
           "interval": ""
         }
       ],
