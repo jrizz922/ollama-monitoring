@@ -52,3 +52,10 @@ echo "  - Grafana:     http://localhost:3131" | tee -a "$LOG_FILE"
 echo "  - Prometheus:  http://localhost:9090" | tee -a "$LOG_FILE"
 echo "  - cAdvisor:    http://localhost:8080" | tee -a "$LOG_FILE"
 echo "  - Open WebUI:  http://localhost:3000 (monitored external service)" | tee -a "$LOG_FILE"
+
+# Check if Ollama is running
+echo "Checking if Ollama is running..."
+if ! pgrep -f "ollama" > /dev/null; then
+  echo "⚠️  Ollama process not found. Please start Ollama before monitoring." | tee -a "$LOG_FILE"
+  echo "  You can start it with: /local/bin/ollama serve" | tee -a "$LOG_FILE"
+fi
