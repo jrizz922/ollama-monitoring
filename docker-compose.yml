@@ -1,0 +1,48 @@
+#docker-compose.yml
+# This is a sample Docker Compose file for setting up Prometheus, Grafana, Node Exporter, and Process Exporter.
+# It includes the necessary configurations and volumes for each service.
+# Make sure to adjust the paths and configurations according to your needs.
+# Save this file as docker-compose.yml and run `docker-compose up` to start the services.
+# You may need to create a prometheus.yml and process-exporter.yml file with the appropriate configurations.
+# prometheus.yml
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+  node_exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"
+
+  process_exporter:
+    image: ncabatoff/process-exporter:latest
+    volumes:
+      - ./process-exporter.yml:/config.yml
+    command:
+      - "--config.path=/config.yml"
+    pid: "host"
+    network_mode: "host"
+    privileged: true
+
+volumes:
+  prometheus_data:
+  grafana_data:

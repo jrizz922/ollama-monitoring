@@ -1,0 +1,7 @@
+process_names:
+  - name: "ollama"
+    cmdline:
+      - '.*ollama.*'
+  - name: "openwebui"
+    cmdline:
+      - '.*open.*webui.*'
