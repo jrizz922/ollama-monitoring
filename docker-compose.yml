@@ -43,6 +43,17 @@ services:
       - "9256:9256"
     privileged: true
 
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    ports:
+      - "8080:8080"
+    volumes:
+       - /:/rootfs:ro
+       - /var/run:/var/run:ro
+       - /sys:/sys:ro
+       - /var/lib/docker/:/var/lib/docker:ro
+    restart: unless-stopped
+
 volumes:
   prometheus_data:
   grafana_data:
