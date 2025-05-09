@@ -39,7 +39,8 @@ services:
     command:
       - "--config.path=/config.yml"
     pid: "host"
-    network_mode: "host"
+    ports:
+      - "9256:9256"
     privileged: true
 
 volumes:
