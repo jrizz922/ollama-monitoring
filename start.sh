@@ -18,17 +18,12 @@ declare -A PORTS=(
 for service in "${!PORTS[@]}"; do
   port="${PORTS[$service]}"
   if lsof -i ":$port" &> /dev/null; then
-    echo "⚠️  Warning: Port $port (used by $service) is already in use." | tee -a "$LOG_FILE"
+    echo "⚠️  Port $port (used by $service) is already in use." | tee -a "$LOG_FILE"
   fi
 done
 
-# Pull latest images
 docker compose pull | tee -a "$LOG_FILE"
-
-# Start services
 docker compose up -d | tee -a "$LOG_FILE"
-
-# Show status
 docker compose ps | tee -a "$LOG_FILE"
 
 echo -e "\n🌐 Access Points:" | tee -a "$LOG_FILE"

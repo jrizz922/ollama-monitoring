@@ -1,7 +1,12 @@
 process_names:
   - name: "ollama"
     cmdline:
-      - '.*ollama.*'
-  - name: "openwebui"
+      - "ollama"
+
+  - name: "open-webui"
     cmdline:
-      - '.*open.*webui.*'
+      - "open-webui"
+
+  - name: "docker"
+    cmdline:
+      - "dockerd"
