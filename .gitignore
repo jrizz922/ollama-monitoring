@@ -2,9 +2,8 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-.log
-Icon[
-]
+*.log
+Icon\r
 
 # Thumbnails
 ._*
@@ -24,3 +23,6 @@ Icon[
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Project specific
+logs/
