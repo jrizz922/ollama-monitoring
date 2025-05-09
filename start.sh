@@ -12,6 +12,7 @@ echo "🔧 Starting Ollama Monitoring Stack..." | tee -a "$LOG_FILE"
 declare -A PORTS=(
   [Grafana]=3131
   [Prometheus]=9090
+  [cAdvisor]=8080
 )
 
 for service in "${!PORTS[@]}"; do
@@ -33,4 +34,5 @@ docker compose ps | tee -a "$LOG_FILE"
 echo -e "\n🌐 Access Points:" | tee -a "$LOG_FILE"
 echo "  - Grafana:     http://localhost:3131" | tee -a "$LOG_FILE"
 echo "  - Prometheus:  http://localhost:9090" | tee -a "$LOG_FILE"
+echo "  - cAdvisor:    http://localhost:8080" | tee -a "$LOG_FILE"
 echo "  - Open WebUI:  http://localhost:3000 (monitored external service)" | tee -a "$LOG_FILE"
