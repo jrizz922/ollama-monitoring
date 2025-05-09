@@ -44,7 +44,7 @@ services:
     volumes:
       - ./process-exporter.yml:/config.yml
       - /proc:/host/proc:ro
-      - /local/bin:/local/bin:ro  # Add this to ensure process_exporter can see Ollama's executable
+      - /usr/local/bin/ollama:/usr/local/bin/ollama:ro
     command:
       - "--config.path=/config.yml"
       - "--procfs=/host/proc"
