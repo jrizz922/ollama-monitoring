@@ -14,8 +14,8 @@ services:
       - prometheus_data:/prometheus
     ports:
       - "9090:9090"
-    command:
-      - "--config.file=/etc/prometheus/prometheus.yml"
+    networks:
+      - monitoring
     restart: unless-stopped
 
   grafana:
@@ -65,3 +65,7 @@ services:
 volumes:
   prometheus_data:
   grafana_data:
+
+networks:
+  monitoring:
+    driver: bridge

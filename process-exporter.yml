@@ -1,9 +1,11 @@
 process_names:
-  - name: "{{.Comm}}"
+  # More general pattern to catch Ollama regardless of exact process name
+  - name: "ollama"
     cmdline:
-      - '.+ollama.+'
+      - '.*ollama.*'
 
+  # Docker processes
   - name: "docker"
     cmdline:
-      - '.+docker.+'
-      - 'dockerd.+'
+      - '.*docker.*'
+      - 'dockerd.*'

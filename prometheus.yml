@@ -19,3 +19,9 @@ scrape_configs:
   - targets: ['cadvisor:8080']
   metrics_path: /metrics
   scheme: http
+
+- job_name: 'debug'
+  metrics_path: /metrics
+  scheme: http
+  static_configs:
+  - targets: ['node_exporter:9100', 'process_exporter:9256', 'cadvisor:8080']
