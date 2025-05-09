@@ -23,7 +23,7 @@ for service in "${!PORTS[@]}"; do
 done
 
 docker compose pull | tee -a "$LOG_FILE"
-docker compose up -d | tee -a "$LOG_FILE"
+docker compose up -d --force-recreate | tee -a "$LOG_FILE"
 docker compose ps | tee -a "$LOG_FILE"
 
 echo -e "\n🌐 Access Points:" | tee -a "$LOG_FILE"
