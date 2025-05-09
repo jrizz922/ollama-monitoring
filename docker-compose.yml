@@ -5,7 +5,7 @@
 # Save this file as docker-compose.yml and run `docker-compose up` to start the services.
 # You may need to create a prometheus.yml and process-exporter.yml file with the appropriate configurations.
 # prometheus.yml
-version: '3.8'
+version: '3.8' #REMOVE
 
 services:
   prometheus:
@@ -21,7 +21,7 @@ services:
   grafana:
     image: grafana/grafana:latest
     ports:
-      - "3000:3000"
+      - "3131:3000"
     volumes:
       - grafana_data:/var/lib/grafana
     environment:
