@@ -1,5 +1,4 @@
 #!/bin/bash
-# Save as diagnose.sh
 
 echo "Checking process_exporter metrics for ollama:"
 curl -s http://localhost:9256/metrics | grep -i ollama
