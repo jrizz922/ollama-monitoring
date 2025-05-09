@@ -1,0 +1,12 @@
+🔧 Starting Ollama Monitoring Stack...
+⚠️  Port 11434 (used by 0) is already in use.
+NAME                                   IMAGE                               COMMAND                  SERVICE            CREATED                  STATUS                  PORTS
+ollama-monitoring-grafana-1            grafana/grafana:latest              "/run.sh"                grafana            Less than a second ago   Up Less than a second   0.0.0.0:3131->3000/tcp
+ollama-monitoring-node_exporter-1      prom/node-exporter:latest           "/bin/node_exporter"     node_exporter      Less than a second ago   Up Less than a second   0.0.0.0:9100->9100/tcp
+ollama-monitoring-process_exporter-1   ncabatoff/process-exporter:latest   "/bin/process-export…"   process_exporter   Less than a second ago   Up Less than a second   0.0.0.0:9256->9256/tcp
+ollama-monitoring-prometheus-1         prom/prometheus:latest              "/bin/prometheus --c…"   prometheus         Less than a second ago   Up Less than a second   0.0.0.0:9090->9090/tcp
+
+🌐 Access Points:
+  - Grafana:     http://localhost:3131
+  - Prometheus:  http://localhost:9090
+  - Open WebUI:  http://localhost:11434

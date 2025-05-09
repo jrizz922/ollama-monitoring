@@ -31,7 +31,7 @@ Open:
       "title": "CPU Usage - Ollama",
       "targets": [
         {
-          "expr": "rate(process_cpu_seconds_total{groupname=\"ollama\"}[1m])",
+          "expr": "rate(process_cpu_seconds_total{name=\"ollama\"}[1m])",
           "legendFormat": "Ollama CPU",
           "interval": ""
         }
@@ -49,7 +49,7 @@ Open:
       "title": "Memory Usage - Ollama",
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{groupname=\"ollama\"}",
+          "expr": "process_resident_memory_bytes{name=\"ollama\"}",
           "legendFormat": "Ollama RAM",
           "interval": ""
         }
@@ -67,7 +67,7 @@ Open:
       "title": "CPU Usage - OpenWebUI",
       "targets": [
         {
-          "expr": "rate(process_cpu_seconds_total{groupname=\"openwebui\"}[1m])",
+          "expr": "rate(process_cpu_seconds_total{name=\"openwebui\"}[1m])",
           "legendFormat": "WebUI CPU",
           "interval": ""
         }
@@ -85,7 +85,7 @@ Open:
       "title": "Memory Usage - OpenWebUI",
       "targets": [
         {
-          "expr": "process_resident_memory_bytes{groupname=\"openwebui\"}",
+          "expr": "process_resident_memory_bytes{name=\"openwebui\"}",
           "legendFormat": "WebUI RAM",
           "interval": ""
         }
