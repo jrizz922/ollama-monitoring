@@ -1,7 +1,7 @@
 process_names:
   - name: "ollama"
     cmdline:
-      - '/usr/local/bin/ollama'
+      - '/usr/local/bin/ollama.*'
 #      - '.*ollama.*'
 
   # Docker processes
