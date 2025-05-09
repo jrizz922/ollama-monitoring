@@ -8,11 +8,10 @@ mkdir -p "$LOG_DIR"
 
 echo "🔧 Starting Ollama Monitoring Stack..." | tee -a "$LOG_FILE"
 
-# Check for port conflicts
+# Check for port conflicts in our monitoring services
 declare -A PORTS=(
   [Grafana]=3131
   [Prometheus]=9090
-  [OpenWebUI]=3000
 )
 
 for service in "${!PORTS[@]}"; do
@@ -21,6 +20,11 @@ for service in "${!PORTS[@]}"; do
     echo "⚠️  Port $port (used by $service) is already in use." | tee -a "$LOG_FILE"
   fi
 done
+
+# Check if monitored services are running
+if ! lsof -i :3000 &> /dev/null; then
+  echo "⚠️  OpenWebUI is not running on port 3000. Monitoring will not capture its metrics." | tee -a "$LOG_FILE"
+fi
 
 docker compose pull | tee -a "$LOG_FILE"
 docker compose up -d --force-recreate | tee -a "$LOG_FILE"
