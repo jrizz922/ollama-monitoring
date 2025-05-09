@@ -45,6 +45,8 @@ curl -s http://localhost:8080/metrics | head -5 | tee -a "$LOG_FILE"
 echo "Process exporter metrics:" | tee -a "$LOG_FILE"
 curl -s http://localhost:9256/metrics | grep ollama | head -5 | tee -a "$LOG_FILE"
 
+# Check and log the status of the services
+
 echo -e "\n🌐 Access Points:" | tee -a "$LOG_FILE"
 echo "  - Grafana:     http://localhost:3131" | tee -a "$LOG_FILE"
 echo "  - Prometheus:  http://localhost:9090" | tee -a "$LOG_FILE"
