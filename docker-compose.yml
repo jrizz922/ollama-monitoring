@@ -44,7 +44,7 @@ services:
     volumes:
       - ./process-exporter.yml:/config.yml
       - /proc:/host/proc:ro
-      - /usr/local/bin/ollama:/usr/local/bin/ollama:ro
+#      - /usr/local/bin/ollama:/usr/local/bin/ollama:ro
     command:
       - "--config.path=/config.yml"
       - "--procfs=/host/proc"
