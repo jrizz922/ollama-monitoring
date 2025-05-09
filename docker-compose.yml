@@ -39,8 +39,10 @@ services:
     image: ncabatoff/process-exporter:latest
     volumes:
       - ./process-exporter.yml:/config.yml
+      - /proc:/host/proc:ro
     command:
       - "--config.path=/config.yml"
+      - "--procfs=/host/proc"
     pid: "host"
     ports:
       - "9256:9256"
